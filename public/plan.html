@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Plan d'Entraînement — Kadence</title>
+    <meta name="description"
+        content="Votre plan d'entraînement personnalisé généré par Kadence. Semaine par semaine, séance par séance, avec allures cibles et zones FC.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300C853'/><path d='M10 6v20M10 16l8-10M10 16l8 10' stroke='%230a0a0f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                        <path d="M8 4v24" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round" />
+                        <path d="M8 16l10-12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M8 16l10 12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></div>
+                Kadence
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="profil.html">Mon Profil</a>
+                <a href="plan.html" class="active">Mon Plan</a>
+                <a href="conseils.html">Conseils</a>
+                <a href="outils.html">Outils</a>
+                <a href="premium.html" class="nav-premium">✦ Premium</a>
+                <a href="profil.html" class="btn btn-primary btn-sm">Commencer</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <span class="section-label">Entraînement</span>
+            <h1>Votre plan <span class="text-gradient">sur mesure</span></h1>
+            <p style="max-width:550px;margin:var(--space-md) auto 0;">12 semaines de progression structurée, adaptées à
+                votre profil.</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+
+            <!-- No Profile State -->
+            <div class="no-profile" id="noProfil">
+                <div class="no-profile-icon">📋</div>
+                <h2>Aucun profil détecté</h2>
+                <p>Pour générer votre plan d'entraînement personnalisé, vous devez d'abord créer votre profil coureur.
+                </p>
+                <a href="profil.html" class="btn btn-primary btn-lg">Créer mon profil</a>
+            </div>
+
+            <!-- Plan Content (hidden until profile exists) -->
+            <div id="planContent" style="display:none;">
+                <!-- Plan Overview -->
+                <div class="plan-overview" id="planOverview">
+                    <!-- Filled by JS -->
+                </div>
+
+                <!-- Phase Indicator -->
+                <div class="phase-indicator" id="phaseIndicator">
+                    <div class="phase-indicator-icon">📌</div>
+                    <div class="phase-indicator-text">
+                        <strong>Phase de base</strong> — Construction de l'endurance fondamentale
+                    </div>
+                </div>
+
+                <!-- Week Tabs -->
+                <div class="week-tabs" id="weekTabs">
+                    <!-- Filled by JS -->
+                </div>
+
+                <!-- Training Days -->
+                <div id="trainingDays">
+                    <!-- Filled by JS -->
+                </div>
+
+                <!-- Plan Legend -->
+                <div class="glass-card" style="margin-top:var(--space-2xl);">
+                    <h3 style="margin-bottom:var(--space-lg);">📖 Lexique des séances</h3>
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-md);">
+                        <div>
+                            <h4 style="color:var(--accent-primary);margin-bottom:var(--space-xs);">EF — Endurance
+                                Fondamentale</h4>
+                            <p style="font-size:0.85rem;">Course facile, allure conversationnelle. Vous devez pouvoir
+                                parler. C'est la base de tout entraînement : elle développe votre système aérobie et
+                                votre capillarisation musculaire.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--accent-primary);margin-bottom:var(--space-xs);">Fractionné</h4>
+                            <p style="font-size:0.85rem;">Alternance d'efforts intenses et de récupérations. Améliore la
+                                VMA, la vitesse et l'économie de course. Les formats varient : 30/30, 200m, 400m, 1000m…
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--accent-primary);margin-bottom:var(--space-xs);">Sortie Longue (SL)
+                            </h4>
+                            <p style="font-size:0.85rem;">Course longue à allure modérée. Développe l'endurance, apprend
+                                au corps à utiliser les graisses comme carburant et prépare mentalement aux longues
+                                distances.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--accent-primary);margin-bottom:var(--space-xs);">Allure Spécifique
+                                (AS)</h4>
+                            <p style="font-size:0.85rem;">Course à l'allure cible de votre objectif. Permet au corps de
+                                mémoriser le rythme visé et d'optimiser l'efficacité biomécanique à cette vitesse.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--accent-primary);margin-bottom:var(--space-xs);">Fartlek</h4>
+                            <p style="font-size:0.85rem;">Jeu de vitesse libre : accélérations au ressenti dans une
+                                sortie en endurance. Idéal pour travailler les changements de rythme sans la pression du
+                                chrono.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--accent-primary);margin-bottom:var(--space-xs);">Repos / Récupération
+                            </h4>
+                            <p style="font-size:0.85rem;">Aussi important que l'entraînement ! C'est au repos que votre
+                                corps s'adapte et progresse. Ne négligez jamais vos jours off.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kadence. Tous droits réservés.</span>
+                <span>Fait avec ❤️ pour les coureurs</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium — Kadence</title>
+    <meta name="description"
+        content="Kadence Premium : accédez à des conseils exclusifs, des plans avancés et un coaching personnalisé pour franchir un cap dans votre entraînement.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300C853'/><path d='M10 6v20M10 16l8-10M10 16l8 10' stroke='%230a0a0f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                        <path d="M8 4v24" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round" />
+                        <path d="M8 16l10-12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M8 16l10 12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></div>
+                Kadence
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="profil.html">Mon Profil</a>
+                <a href="plan.html">Mon Plan</a>
+                <a href="conseils.html">Conseils</a>
+                <a href="outils.html">Outils</a>
+                <a href="premium.html" class="nav-premium active">✦ Premium</a>
+                <a href="profil.html" class="btn btn-primary btn-sm">Commencer</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <span class="section-label premium-label">✦ Premium</span>
+            <h1>Passez au <span class="text-gradient-gold">niveau supérieur</span></h1>
+            <p style="max-width:600px;margin:var(--space-md) auto 0;">Des conseils exclusifs, des stratégies avancées et
+                un coaching approfondi réservés aux membres Premium.</p>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Gratuit</h3>
+                        <div class="pricing-price">0€<span>/mois</span></div>
+                        <p>Pour bien démarrer</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">Plan d'entraînement 12 semaines</li>
+                        <li class="included">Conseils de base (6 catégories)</li>
+                        <li class="included">5 calculateurs de performance</li>
+                        <li class="included">Profil personnalisé</li>
+                        <li class="excluded">Stratégies de compétition avancées</li>
+                        <li class="excluded">Plans nutrition jour de course</li>
+                        <li class="excluded">Analyse biomécanique avancée</li>
+                        <li class="excluded">Programmation de force spécifique</li>
+                    </ul>
+                    <a href="profil.html" class="btn btn-secondary" style="width:100%;">C'est déjà pas mal →</a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card pricing-card-premium">
+                    <div class="premium-badge-card">Recommandé</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="pricing-price">9,90€<span>/mois</span></div>
+                        <p>Pour ceux qui veulent plus</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="included">Tout le plan Gratuit</li>
+                        <li class="included premium-feature">Stratégies de compétition avancées</li>
+                        <li class="included premium-feature">Plans nutrition jour de course</li>
+                        <li class="included premium-feature">Analyse biomécanique avancée</li>
+                        <li class="included premium-feature">Programmation de force spécifique</li>
+                        <li class="included premium-feature">Protocoles de récupération pro</li>
+                        <li class="included premium-feature">Mental : techniques d'élite</li>
+                        <li class="included premium-feature">Mises à jour prioritaires</li>
+                    </ul>
+                    <button class="btn btn-premium" style="width:100%;" onclick="openPaymentModal()">
+                        ✦ Débloquer Premium
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Content Preview -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label premium-label">✦ Contenu exclusif</span>
+                <h2>Aperçu du contenu <span class="text-gradient-gold">Premium</span></h2>
+                <p>Un échantillon du type de conseils réservés à nos membres Premium.</p>
+            </div>
+
+            <!-- Premium Content Cards -->
+            <div class="premium-content-grid">
+
+                <!-- Card 1: Race Strategy -->
+                <div class="premium-content-card reveal reveal-delay-1">
+                    <div class="premium-lock-badge">✦ Premium</div>
+                    <h3>🏁 Stratégie de course : le negative split parfait</h3>
+                    <p class="premium-preview-text">La plupart des records du monde en course à pied sont réalisés en
+                        negative split — partir conservateur et accélérer en seconde moitié. Voici comment implémenter
+                        cette stratégie...</p>
+                    <div class="premium-blur-overlay">
+                        <div class="premium-blur-content">
+                            <h4>Les 4 phases du negative split</h4>
+                            <p><strong>Phase 1 (0-25%)</strong> : Partez 10-15 secondes/km plus lent que votre allure
+                                cible. Le peloton autour de vous va partir trop vite — laissez-les. À ce stade, votre FC
+                                doit rester en zone 3 basse. Mémorisez vos sensations : si vous vous sentez "trop
+                                facile", c'est parfait.</p>
+                            <p><strong>Phase 2 (25-50%)</strong> : Glissez progressivement vers votre allure cible. Ne
+                                cherchez pas à rattraper le temps "perdu". Vous commencez à remonter des coureurs qui
+                                ont trop forcé au départ. FC zone 3-4.</p>
+                            <p><strong>Phase 3 (50-75%)</strong> : C'est ici que vous faites la différence. Augmentez de
+                                5-8 sec/km par rapport à l'allure cible. Mentalement, concentrez-vous sur chaque km
+                                individuellement. FC zone 4.</p>
+                            <p><strong>Phase 4 (75-100%)</strong> : Donnez tout ce qu'il reste. Les 3 derniers km sont
+                                gérés uniquement au mental. Utilisez vos mantras. Vous êtes en train de remonter
+                                massivement le classement. FC zone 4-5.</p>
+                            <p><strong>Clé de réussite</strong> : Pratiquez en entraînement ! Faites 1 sortie longue par
+                                mois en negative split. Divisez-la en 2 : première moitié en EF, seconde moitié à allure
+                                marathon. Votre corps et votre mental apprendront le pattern.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-premium btn-sm" onclick="openPaymentModal()">✦ Débloquer ce contenu</button>
+                </div>
+
+                <!-- Card 2: Race Day Nutrition -->
+                <div class="premium-content-card reveal reveal-delay-2">
+                    <div class="premium-lock-badge">✦ Premium</div>
+                    <h3>🍯 Nutrition jour de course : le protocole complet</h3>
+                    <p class="premium-preview-text">Le jour J, la nutrition peut représenter jusqu'à 20% de votre
+                        performance. Voici le protocole exact utilisé par les coureurs élite pour le marathon...</p>
+                    <div class="premium-blur-overlay">
+                        <div class="premium-blur-content">
+                            <h4>J-3 à J-1 : Charge glucidique optimale</h4>
+                            <p><strong>Objectif</strong> : Saturer vos réserves de glycogène (500-600g). Visez
+                                8-10g de glucides par kg de poids corporel. Pour un coureur de 70kg : 560-700g de
+                                glucides/jour. Riz blanc, pâtes, pain blanc (l'IG haut est votre allié ici), jus de
+                                fruits, miel.</p>
+                            <h4>Jour J : Timing précis</h4>
+                            <p><strong>J -3h</strong> : Petit déjeuner testé à l'entraînement. Ex: 100g flocons
+                                d'avoine + miel + banane + thé. 600-800 kcal max. Zéro fibre, zéro graisse.</p>
+                            <p><strong>J -30min</strong> : Un gel + 200ml d'eau. Dernier apport avant le départ.</p>
+                            <p><strong>Pendant la course (&gt;1h15)</strong> : 60-90g de glucides/heure sous forme de
+                                gels, boissons isotoniques ou pâtes de fruits. Commencez dès le km 5, n'attendez pas
+                                d'avoir faim — c'est trop tard. Alternez glucose + fructose (ratio 2:1) pour maximiser
+                                l'absorption intestinale.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-premium btn-sm" onclick="openPaymentModal()">✦ Débloquer ce contenu</button>
+                </div>
+
+                <!-- Card 3: Advanced Biomechanics -->
+                <div class="premium-content-card reveal reveal-delay-3">
+                    <div class="premium-lock-badge">✦ Premium</div>
+                    <h3>⚙️ Analyse biomécanique : optimiser votre économie de course</h3>
+                    <p class="premium-preview-text">L'économie de course (Running Economy) est le facteur n°1 de
+                        performance chez les coureurs expérimentés. Elle se travaille spécifiquement...</p>
+                    <div class="premium-blur-overlay">
+                        <div class="premium-blur-content">
+                            <h4>Les 5 leviers de l'économie de course</h4>
+                            <p><strong>1. Stiffness tendineuse</strong> : Plus vos tendons sont rigides (au bon
+                                sens du terme), plus ils restituent d'énergie élastique. Travaillez avec des exercices
+                                pliométriques : drop jumps, sauts en contrebas, corde à sauter (3×30s). Progression sur
+                                8 semaines minimum.</p>
+                            <p><strong>2. Oscillation verticale</strong> : Chaque cm de rebond vertical = énergie
+                                gaspillée. Visez &lt;8cm (montres Garmin/COROS le mesurent). Astuce : courez en
+                                imaginant un plafond bas au-dessus de vous.</p>
+                            <p><strong>3. Temps de contact au sol</strong> : Objectif &lt;250ms en endurance,
+                                &lt;200ms en vitesse. Se travaille avec les gammes athlétiques et le renforcement des
+                                pieds.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-premium btn-sm" onclick="openPaymentModal()">✦ Débloquer ce contenu</button>
+                </div>
+
+                <!-- Card 4: Strength Program -->
+                <div class="premium-content-card reveal reveal-delay-1">
+                    <div class="premium-lock-badge">✦ Premium</div>
+                    <h3>🏋️ Programme de force spécifique coureur (8 semaines)</h3>
+                    <p class="premium-preview-text">Un programme complet de renforcement musculaire conçu spécialement
+                        pour les coureurs, avec périodisation et progression intégrées...</p>
+                    <div class="premium-blur-overlay">
+                        <div class="premium-blur-content">
+                            <h4>Phase 1 : Adaptation (Semaines 1-3)</h4>
+                            <p>3 séances/semaine, 30 minutes. Focus endurance musculaire.</p>
+                            <p>A) Squats goblet 3×15 · Fentes marchées 3×12/jambe · Ponts fessiers 3×20 · Planche
+                                3×45s</p>
+                            <p>B) Step-ups 3×12/jambe · Romanian Deadlift 3×12 · Clamshells 3×15/côté · Bird-dogs
+                                3×10/côté</p>
+                            <h4>Phase 2 : Force (Semaines 4-6)</h4>
+                            <p>Charges plus lourdes, 3×8-10 reps. Introduction squats barre, hip thrusts lourds,
+                                single-leg deadlifts.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-premium btn-sm" onclick="openPaymentModal()">✦ Débloquer ce contenu</button>
+                </div>
+
+                <!-- Card 5: Recovery Protocols -->
+                <div class="premium-content-card reveal reveal-delay-2">
+                    <div class="premium-lock-badge">✦ Premium</div>
+                    <h3>🧊 Protocoles de récupération avancés</h3>
+                    <p class="premium-preview-text">Les méthodes de récupération utilisées par les athlètes
+                        professionnels, adaptées pour une utilisation à domicile...</p>
+                    <div class="premium-blur-overlay">
+                        <div class="premium-blur-content">
+                            <h4>Protocole post-compétition (48h)</h4>
+                            <p><strong>H+0 à H+2</strong> : Marche 10 min · Boisson de récupération (30g protéines +
+                                60g glucides) · Bain de pieds froid 10 min · Chaussettes de compression</p>
+                            <p><strong>H+2 à H+24</strong> : Repos actif léger uniquement (marche, natation). Massage
+                                doux si disponible. Alimentation riche en antioxydants : myrtilles, cerises, curcuma.
+                                Hydratation : 3L minimum.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-premium btn-sm" onclick="openPaymentModal()">✦ Débloquer ce contenu</button>
+                </div>
+
+                <!-- Card 6: Elite Mental -->
+                <div class="premium-content-card reveal reveal-delay-3">
+                    <div class="premium-lock-badge">✦ Premium</div>
+                    <h3>🧠 Préparation mentale : techniques d'élite</h3>
+                    <p class="premium-preview-text">Les techniques de préparation mentale utilisées par les champions
+                        olympiques, adaptées pour le coureur amateur ambitieux...</p>
+                    <div class="premium-blur-overlay">
+                        <div class="premium-blur-content">
+                            <h4>La boîte à outils mentale</h4>
+                            <p><strong>Ancrage sensoriel</strong> : Créez un geste-déclencheur (serrer le poing, toucher
+                                votre montre) associé à un état de confiance maximale. Entraînez-le : reproduisez le
+                                geste en revivant un souvenir de réussite intense. Après 3 semaines de pratique
+                                quotidienne, le geste seul déclenchera l'état.</p>
+                            <p><strong>Dissociation cognitive</strong> : En cas de douleur intense en fin de course,
+                                technique de comptage inversé par 7 (100, 93, 86...). Force le cerveau à utiliser le
+                                cortex préfrontal, réduisant la perception de la douleur de 20-30%.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-premium btn-sm" onclick="openPaymentModal()">✦ Débloquer ce contenu</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="section">
+        <div class="container">
+            <div class="guarantee-card reveal">
+                <div class="guarantee-icon">🛡️</div>
+                <h3>Satisfait ou remboursé — 30 jours</h3>
+                <p>Si le contenu Premium ne vous aide pas à progresser, on vous rembourse intégralement. Sans question,
+                    sans condition. On est confiants dans la qualité de nos contenus.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal-overlay" id="paymentModal">
+        <div class="payment-modal">
+            <button class="payment-modal-close" onclick="closePaymentModal()">&times;</button>
+            <div class="payment-modal-header">
+                <div class="premium-diamond">✦</div>
+                <h2>Kadence <span class="text-gradient-gold">Premium</span></h2>
+                <p>9,90€ / mois · Sans engagement · Annulable à tout moment</p>
+            </div>
+
+            <!-- Step 1: Email -->
+            <div class="payment-step active" data-step="1" id="payStep1">
+                <h3>Votre adresse email</h3>
+                <div class="form-group">
+                    <label for="payEmail">Email</label>
+                    <input type="email" class="form-input" id="payEmail" placeholder="votre@email.com" required>
+                </div>
+                <button type="button" class="btn btn-premium" style="width:100%;"
+                    onclick="goToPaymentMethods()">Continuer</button>
+            </div>
+
+            <!-- Step 2: Paiement -->
+            <div class="payment-step" data-step="2" id="payStep2">
+                <h3>Choisissez votre moyen de paiement</h3>
+                <div class="payment-summary" style="margin-bottom:var(--space-lg);">
+                    <div class="payment-summary-row">
+                        <span>Kadence Premium</span>
+                        <span>9,90€/mois</span>
+                    </div>
+                    <div class="payment-summary-row total">
+                        <span>Total aujourd'hui</span>
+                        <span>9,90€</span>
+                    </div>
+                </div>
+
+                <!-- PayPal Smart Button -->
+                <div id="paypal-button-container" style="min-height:55px;margin-bottom:var(--space-md);"></div>
+
+                <!-- Separator -->
+                <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-md);">
+                    <div style="flex:1;height:1px;background:var(--border);"></div>
+                    <span style="font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;">ou</span>
+                    <div style="flex:1;height:1px;background:var(--border);"></div>
+                </div>
+
+                <!-- Stripe Hosted Checkout -->
+                <button type="button" class="btn btn-stripe" style="width:100%;" id="stripeCheckoutBtn"
+                    onclick="redirectToStripeCheckout()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                        <path d="M1 10h22" />
+                    </svg>
+                    Payer par carte bancaire
+                </button>
+                <p class="payment-secure" style="margin-top:var(--space-md);">🔒 Paiements sécurisés par PayPal & Stripe
+                </p>
+            </div>
+
+            <!-- Step 3: Success -->
+            <div class="payment-step" data-step="3" id="payStep3">
+                <div class="payment-success">
+                    <div class="payment-success-icon">✓</div>
+                    <h3>Bienvenue dans Kadence Premium ! 🎉</h3>
+                    <p>Votre accès Premium est maintenant actif. Tout le contenu exclusif est débloqué.</p>
+                    <button type="button" class="btn btn-premium" style="width:100%;"
+                        onclick="closePaymentModal();">Accéder au contenu Premium</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kadence. Tous droits réservés.</span>
+                <span>Fait avec ❤️ pour les coureurs</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outils Running — Kadence</title>
+    <meta name="description"
+        content="Outils de calcul pour coureurs : allure, zones de fréquence cardiaque, prédicteur de performance, IMC coureur et calories brûlées.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300C853'/><path d='M10 6v20M10 16l8-10M10 16l8 10' stroke='%230a0a0f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                        <path d="M8 4v24" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round" />
+                        <path d="M8 16l10-12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M8 16l10 12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></div>
+                Kadence
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="profil.html">Mon Profil</a>
+                <a href="plan.html">Mon Plan</a>
+                <a href="conseils.html">Conseils</a>
+                <a href="outils.html" class="active">Outils</a>
+                <a href="premium.html" class="nav-premium">✦ Premium</a>
+                <a href="profil.html" class="btn btn-primary btn-sm">Commencer</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <span class="section-label">Performance</span>
+            <h1>Outils de <span class="text-gradient">calcul</span></h1>
+            <p style="max-width:550px;margin:var(--space-md) auto 0;">Des calculateurs précis pour optimiser votre
+                entraînement et analyser vos performances.</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="tools-grid">
+
+                <!-- Pace Calculator -->
+                <div class="tool-card" id="paceCalculator">
+                    <div class="tool-card-header">
+                        <div class="tool-icon">⏱️</div>
+                        <div>
+                            <h3>Calculateur d'allure</h3>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Convertissez entre min/km et
+                                km/h</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="paceMin">Allure (min/km)</label>
+                        <div class="form-row">
+                            <input type="number" class="form-input" id="paceMin" placeholder="5" min="0" max="20">
+                            <input type="number" class="form-input" id="paceSec" placeholder="30" min="0" max="59">
+                        </div>
+                    </div>
+                    <div style="text-align:center;color:var(--text-muted);font-size:0.9rem;margin:var(--space-sm) 0;">⟷
+                        ou ⟷</div>
+                    <div class="form-group">
+                        <label for="speedKmh">Vitesse (km/h)</label>
+                        <input type="number" class="form-input" id="speedKmh" placeholder="10.9" step="0.1" min="1"
+                            max="30">
+                    </div>
+                    <div class="form-group">
+                        <label for="paceDistance">Distance (km)</label>
+                        <select class="form-input" id="paceDistance">
+                            <option value="5">5 km</option>
+                            <option value="10" selected>10 km</option>
+                            <option value="21.1">Semi-marathon (21,1 km)</option>
+                            <option value="42.195">Marathon (42,195 km)</option>
+                            <option value="custom">Personnalisée</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="customDistanceGroup" style="display:none;">
+                        <label for="customDistance">Distance personnalisée (km)</label>
+                        <input type="number" class="form-input" id="customDistance" placeholder="15" step="0.1"
+                            min="0.1">
+                    </div>
+                    <button class="btn btn-primary" style="width:100%;" onclick="calculatePace()">Calculer</button>
+                    <div class="tool-result" id="paceResult" style="display:none;">
+                        <div>
+                            <div class="tool-result-value" id="paceResultValue">—</div>
+                            <div class="tool-result-detail" id="paceResultDetail"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Heart Rate Zones -->
+                <div class="tool-card" id="hrZones">
+                    <div class="tool-card-header">
+                        <div class="tool-icon">❤️</div>
+                        <div>
+                            <h3>Zones de Fréquence Cardiaque</h3>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Méthode de Karvonen (FC de
+                                réserve)</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hrAge">Âge</label>
+                            <input type="number" class="form-input" id="hrAge" placeholder="30" min="12" max="99">
+                        </div>
+                        <div class="form-group">
+                            <label for="hrRest">FC repos (bpm)</label>
+                            <input type="number" class="form-input" id="hrRest" placeholder="60" min="30" max="100">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hrMax">FC max connue (optionnel)</label>
+                        <input type="number" class="form-input" id="hrMax" placeholder="Laisser vide = 220 - âge"
+                            min="120" max="220">
+                    </div>
+                    <button class="btn btn-primary" style="width:100%;" onclick="calculateHRZones()">Calculer mes
+                        zones</button>
+                    <div class="zones-display" id="zonesDisplay" style="display:none;">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+
+                <!-- Performance Predictor -->
+                <div class="tool-card" id="predictor">
+                    <div class="tool-card-header">
+                        <div class="tool-icon">🔮</div>
+                        <div>
+                            <h3>Prédicteur de performance</h3>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Formule de Riegel — estimation
+                                basée science</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Votre meilleur temps récent</label>
+                        <div class="form-row">
+                            <select class="form-input" id="refDistance">
+                                <option value="5">5 km</option>
+                                <option value="10" selected>10 km</option>
+                                <option value="21.1">Semi-marathon</option>
+                                <option value="42.195">Marathon</option>
+                            </select>
+                            <div style="display:flex;gap:4px;">
+                                <input type="number" class="form-input" id="refHours" placeholder="0" min="0" max="10"
+                                    style="width:60px;">
+                                <input type="number" class="form-input" id="refMinutes" placeholder="50" min="0"
+                                    max="59" style="width:60px;">
+                                <input type="number" class="form-input" id="refSeconds" placeholder="00" min="0"
+                                    max="59" style="width:60px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="targetDistance">Distance cible</label>
+                        <select class="form-input" id="targetDistance">
+                            <option value="5">5 km</option>
+                            <option value="10">10 km</option>
+                            <option value="21.1" selected>Semi-marathon</option>
+                            <option value="42.195">Marathon</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" style="width:100%;" onclick="predictPerformance()">Prédire mon
+                        temps</button>
+                    <div class="tool-result" id="predictResult" style="display:none;">
+                        <div>
+                            <div class="tool-result-value" id="predictResultValue">—</div>
+                            <div class="tool-result-detail" id="predictResultDetail"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BMI Calculator -->
+                <div class="tool-card" id="bmiCalculator">
+                    <div class="tool-card-header">
+                        <div class="tool-icon">⚖️</div>
+                        <div>
+                            <h3>IMC Coureur</h3>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Interprétation adaptée aux
+                                sportifs</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bmiWeight">Poids (kg)</label>
+                            <input type="number" class="form-input" id="bmiWeight" placeholder="70" min="30" max="200">
+                        </div>
+                        <div class="form-group">
+                            <label for="bmiHeight">Taille (cm)</label>
+                            <input type="number" class="form-input" id="bmiHeight" placeholder="175" min="100"
+                                max="250">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="width:100%;" onclick="calculateBMI()">Calculer</button>
+                    <div class="tool-result" id="bmiResult" style="display:none;">
+                        <div>
+                            <div class="tool-result-value" id="bmiResultValue">—</div>
+                            <div class="tool-result-label" id="bmiResultLabel"></div>
+                            <div class="tool-result-detail" id="bmiResultDetail"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calorie Calculator -->
+                <div class="tool-card" id="calorieCalculator">
+                    <div class="tool-card-header">
+                        <div class="tool-icon">🔥</div>
+                        <div>
+                            <h3>Calories brûlées</h3>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">Estimation de la dépense
+                                calorique</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="calWeight">Poids (kg)</label>
+                            <input type="number" class="form-input" id="calWeight" placeholder="70" min="30" max="200">
+                        </div>
+                        <div class="form-group">
+                            <label for="calDistance">Distance (km)</label>
+                            <input type="number" class="form-input" id="calDistance" placeholder="10" step="0.1"
+                                min="0.1" max="200">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="calTerrain">Terrain</label>
+                        <select class="form-input" id="calTerrain">
+                            <option value="1.0">Route plate</option>
+                            <option value="1.1">Route vallonnée</option>
+                            <option value="1.2">Trail modéré</option>
+                            <option value="1.4">Trail montagne</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" style="width:100%;" onclick="calculateCalories()">Calculer</button>
+                    <div class="tool-result" id="calorieResult" style="display:none;">
+                        <div>
+                            <div class="tool-result-value" id="calorieResultValue">—</div>
+                            <div class="tool-result-label">calories brûlées (estimation)</div>
+                            <div class="tool-result-detail" id="calorieResultDetail"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kadence. Tous droits réservés.</span>
+                <span>Fait avec ❤️ pour les coureurs</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

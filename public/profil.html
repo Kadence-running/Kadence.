@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil — Kadence</title>
+    <meta name="description"
+        content="Créez votre profil coureur personnalisé en quelques minutes. Kadence adapte votre plan d'entraînement à votre niveau, objectifs et contraintes.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300C853'/><path d='M10 6v20M10 16l8-10M10 16l8 10' stroke='%230a0a0f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                        <path d="M8 4v24" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round" />
+                        <path d="M8 16l10-12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M8 16l10 12" stroke="#0a0a0f" stroke-width="3.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg></div>
+                Kadence
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="profil.html" class="active">Mon Profil</a>
+                <a href="plan.html">Mon Plan</a>
+                <a href="conseils.html">Conseils</a>
+                <a href="outils.html">Outils</a>
+                <a href="premium.html" class="nav-premium">✦ Premium</a>
+                <a href="profil.html" class="btn btn-primary btn-sm">Commencer</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <span class="section-label">Configuration</span>
+            <h1>Créez votre <span class="text-gradient">profil coureur</span></h1>
+            <p style="max-width:550px;margin:var(--space-md) auto 0;">Quelques questions pour adapter parfaitement votre
+                entraînement.</p>
+        </div>
+    </div>
+
+    <!-- Wizard -->
+    <section class="section" id="wizard-section">
+        <div class="container">
+            <div class="wizard-container" id="wizardContainer">
+                <!-- Progress -->
+                <div class="wizard-progress" id="wizardProgress">
+                    <div class="wizard-step-indicator active" data-step="1">1</div>
+                    <div class="wizard-connector"></div>
+                    <div class="wizard-step-indicator" data-step="2">2</div>
+                    <div class="wizard-connector"></div>
+                    <div class="wizard-step-indicator" data-step="3">3</div>
+                    <div class="wizard-connector"></div>
+                    <div class="wizard-step-indicator" data-step="4">4</div>
+                    <div class="wizard-connector"></div>
+                    <div class="wizard-step-indicator" data-step="5">5</div>
+                    <div class="wizard-connector"></div>
+                    <div class="wizard-step-indicator" data-step="6">6</div>
+                </div>
+
+                <!-- Step 1: Basic Info -->
+                <div class="wizard-step active" data-step="1">
+                    <h3>Informations de base</h3>
+                    <p class="step-description">Ces données nous permettent de calibrer votre plan.</p>
+                    <div class="glass-card">
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" class="form-input" id="prenom" placeholder="Votre prénom">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="age">Âge</label>
+                                <input type="number" class="form-input" id="age" placeholder="30" min="12" max="99">
+                            </div>
+                            <div class="form-group">
+                                <label for="sexe">Sexe</label>
+                                <select class="form-input" id="sexe">
+                                    <option value="">Sélectionner</option>
+                                    <option value="homme">Homme</option>
+                                    <option value="femme">Femme</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="poids">Poids (kg)</label>
+                                <input type="number" class="form-input" id="poids" placeholder="70" min="30" max="200">
+                            </div>
+                            <div class="form-group">
+                                <label for="taille">Taille (cm)</label>
+                                <input type="number" class="form-input" id="taille" placeholder="175" min="100"
+                                    max="250">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Level -->
+                <div class="wizard-step" data-step="2">
+                    <h3>Votre niveau de course</h3>
+                    <p class="step-description">Soyez honnête, c'est la clé d'un bon plan.</p>
+                    <div class="option-cards" id="levelCards">
+                        <div class="option-card" data-value="debutant">
+                            <div class="option-card-icon">🌱</div>
+                            <div class="option-card-title">Débutant</div>
+                            <div class="option-card-desc">Moins de 6 mois de course régulière, ou reprise après un long
+                                arrêt</div>
+                        </div>
+                        <div class="option-card" data-value="intermediaire">
+                            <div class="option-card-icon">🏃</div>
+                            <div class="option-card-title">Intermédiaire</div>
+                            <div class="option-card-desc">6 mois à 2 ans de course, 2-3 sorties/semaine, quelques
+                                courses à son actif</div>
+                        </div>
+                        <div class="option-card" data-value="avance">
+                            <div class="option-card-icon">🔥</div>
+                            <div class="option-card-title">Avancé</div>
+                            <div class="option-card-desc">2+ ans de course sérieuse, 4+ sorties/semaine, objectifs
+                                chrono précis</div>
+                        </div>
+                        <div class="option-card" data-value="elite">
+                            <div class="option-card-icon">🏆</div>
+                            <div class="option-card-title">Élite</div>
+                            <div class="option-card-desc">Compétiteur régulier, entraînement structuré, performances de
+                                haut niveau</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Objective -->
+                <div class="wizard-step" data-step="3">
+                    <h3>Votre objectif</h3>
+                    <p class="step-description">Quel est votre prochain défi ?</p>
+                    <div class="option-cards" id="objectiveCards">
+                        <div class="option-card" data-value="5k">
+                            <div class="option-card-icon">🎯</div>
+                            <div class="option-card-title">5 km</div>
+                            <div class="option-card-desc">Premier 5K ou améliorer son temps</div>
+                        </div>
+                        <div class="option-card" data-value="10k">
+                            <div class="option-card-icon">🎯</div>
+                            <div class="option-card-title">10 km</div>
+                            <div class="option-card-desc">Progresser sur la distance reine</div>
+                        </div>
+                        <div class="option-card" data-value="semi">
+                            <div class="option-card-icon">🏅</div>
+                            <div class="option-card-title">Semi-marathon</div>
+                            <div class="option-card-desc">21,1 km — l'épreuve d'endurance</div>
+                        </div>
+                        <div class="option-card" data-value="marathon">
+                            <div class="option-card-icon">🏅</div>
+                            <div class="option-card-title">Marathon</div>
+                            <div class="option-card-desc">42,195 km — le graal du fond</div>
+                        </div>
+                        <div class="option-card" data-value="trail">
+                            <div class="option-card-icon">⛰️</div>
+                            <div class="option-card-title">Trail</div>
+                            <div class="option-card-desc">Course nature avec dénivelé</div>
+                        </div>
+                        <div class="option-card" data-value="forme">
+                            <div class="option-card-icon">💪</div>
+                            <div class="option-card-title">Remise en forme</div>
+                            <div class="option-card-desc">Courir régulièrement pour la santé</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Availability -->
+                <div class="wizard-step" data-step="4">
+                    <h3>Vos disponibilités</h3>
+                    <p class="step-description">On adapte le volume à votre vie.</p>
+                    <div class="glass-card">
+                        <div class="form-group">
+                            <label for="joursParSemaine">Nombre de sorties par semaine</label>
+                            <select class="form-input" id="joursParSemaine">
+                                <option value="">Sélectionner</option>
+                                <option value="2">2 sorties / semaine</option>
+                                <option value="3">3 sorties / semaine</option>
+                                <option value="4">4 sorties / semaine</option>
+                                <option value="5">5 sorties / semaine</option>
+                                <option value="6">6 sorties / semaine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tempsParSeance">Temps disponible par séance</label>
+                            <select class="form-input" id="tempsParSeance">
+                                <option value="">Sélectionner</option>
+                                <option value="30">30 minutes</option>
+                                <option value="45">45 minutes</option>
+                                <option value="60">1 heure</option>
+                                <option value="75">1h15</option>
+                                <option value="90">1h30</option>
+                                <option value="120">2 heures ou plus</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fcRepos">Fréquence cardiaque au repos (optionnel)</label>
+                            <input type="number" class="form-input" id="fcRepos" placeholder="Ex: 60 bpm" min="30"
+                                max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="fcMax">Fréquence cardiaque max connue (optionnel)</label>
+                            <input type="number" class="form-input" id="fcMax" placeholder="Ex: 190 bpm" min="120"
+                                max="220">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Injuries -->
+                <div class="wizard-step" data-step="5">
+                    <h3>Historique de blessures</h3>
+                    <p class="step-description">Pour adapter le plan et prévenir les rechutes. Sélectionnez les zones
+                        concernées.</p>
+                    <div class="checkbox-cards" id="injuryCards">
+                        <div class="checkbox-card" data-value="genoux">
+                            <div class="check-icon">✓</div>
+                            <span>Genoux</span>
+                        </div>
+                        <div class="checkbox-card" data-value="chevilles">
+                            <div class="check-icon">✓</div>
+                            <span>Chevilles</span>
+                        </div>
+                        <div class="checkbox-card" data-value="tendon-achille">
+                            <div class="check-icon">✓</div>
+                            <span>Tendon d'Achille</span>
+                        </div>
+                        <div class="checkbox-card" data-value="tibias">
+                            <div class="check-icon">✓</div>
+                            <span>Périostite tibiale</span>
+                        </div>
+                        <div class="checkbox-card" data-value="hanche">
+                            <div class="check-icon">✓</div>
+                            <span>Hanche / IT Band</span>
+                        </div>
+                        <div class="checkbox-card" data-value="dos">
+                            <div class="check-icon">✓</div>
+                            <span>Dos / Lombaires</span>
+                        </div>
+                        <div class="checkbox-card" data-value="fascia">
+                            <div class="check-icon">✓</div>
+                            <span>Fasciite plantaire</span>
+                        </div>
+                        <div class="checkbox-card" data-value="aucune">
+                            <div class="check-icon">✓</div>
+                            <span>Aucune blessure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6: Terrain preference -->
+                <div class="wizard-step" data-step="6">
+                    <h3>Votre terrain de prédilection</h3>
+                    <p class="step-description">On adapte les séances à votre environnement.</p>
+                    <div class="option-cards" id="terrainCards">
+                        <div class="option-card" data-value="route">
+                            <div class="option-card-icon">🛣️</div>
+                            <div class="option-card-title">Route</div>
+                            <div class="option-card-desc">Asphalte, trottoir, parcours urbains</div>
+                        </div>
+                        <div class="option-card" data-value="trail">
+                            <div class="option-card-icon">🌲</div>
+                            <div class="option-card-title">Trail / Nature</div>
+                            <div class="option-card-desc">Sentiers, forêt, montagne, dénivelé</div>
+                        </div>
+                        <div class="option-card" data-value="piste">
+                            <div class="option-card-icon">🏟️</div>
+                            <div class="option-card-title">Piste</div>
+                            <div class="option-card-desc">Piste d'athlétisme 400m</div>
+                        </div>
+                        <div class="option-card" data-value="mixte">
+                            <div class="option-card-icon">🔀</div>
+                            <div class="option-card-title">Mixte</div>
+                            <div class="option-card-desc">Un peu de tout selon les jours</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wizard Navigation -->
+                <div class="wizard-actions">
+                    <button class="btn btn-secondary" id="prevBtn" style="visibility:hidden;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        Précédent
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn">
+                        Suivant
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Summary (hidden until complete) -->
+            <div class="profile-summary" id="profileSummary" style="display:none;">
+                <div class="profile-summary-header">
+                    <div class="check-circle">✓</div>
+                    <h2>Profil enregistré, <span class="text-gradient" id="summaryName">coureur</span> !</h2>
+                    <p>Votre plan personnalisé est prêt. Voici un résumé de votre profil.</p>
+                </div>
+                <div class="profile-grid" id="profileGrid">
+                    <!-- Filled by JS -->
+                </div>
+                <div
+                    style="text-align:center;margin-top:var(--space-2xl);display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+                    <a href="plan.html" class="btn btn-primary btn-lg">
+                        Voir mon plan d'entraînement
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <button class="btn btn-secondary" id="resetProfileBtn">Modifier mon profil</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>&copy; 2026 Kadence. Tous droits réservés.</span>
+                <span>Fait avec ❤️ pour les coureurs</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
